@@ -54,7 +54,8 @@ refactorButton.addEventListener("click", async () => {
 
     // Mostrar resultado en la página
     resultDiv.innerHTML = response;
-    translateComment(response);
+    // translateComment(response);
+    processMarkdown(response);
   } catch (error) {
     console.error("Error analyzing code:", error);
     alert("Error analyzing code. Please try again.");
@@ -79,4 +80,17 @@ async function translateComment(text) {
     translateDiv.innerHTML = "An error occurred. Please try again.";
     console.error(err.name, err.message);
   }
+}
+
+async function displayMarkdown(text) {
+  const html = marked(text);
+  translateDiv.innerHTML = html;
+}
+
+async function processMarkdown(response) {
+  // Primero ejecuta translateComment
+  const translatedText = await translateComment(response);
+
+  // Luego pasa el texto traducido
+  displayMarkdown(translatedText);
 }
