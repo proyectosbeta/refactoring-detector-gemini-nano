@@ -1,6 +1,7 @@
 ## V1.1.0
 
 - feat: add ux/ui
+- refactor: improve the style
 
 ## V1.0.0
 

@@ -17,8 +17,8 @@ body {
 
 .container {
     background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0 , 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     padding: 20px;
     max-width: 800px;
     width: 100%;
@@ -73,25 +73,29 @@ button:active {
 
 .tabs {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     margin-bottom: 10px;
+    gap: 2px;
 }
 
 .tab-button {
-    background: #e0e7ff;
-    border: 1px solid #cbd5e1;
-    padding: 10px 20px;
+    background: #f0f0f5;
+    border: none;
+    padding: 8px 16px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
-    border-radius: 5px 5px 0 0;
-    margin-right: 5px;
+    border-radius: 8px 8px 0 0;
     color: #1e3a8a;
+    font-weight: bold;
 }
 
 .tab-button.active {
-    background: #3b82f6;
-    border-bottom: 1px solid #fff;
-    color: #fff;
+    background: #e6e6ea;
+    border: 1px solid #d1d5db;
+    border-bottom: none;
+    color: #000;
+    position: relative;
+    top: 1px;
 }
 
 .tab-content {
@@ -102,7 +106,7 @@ button:active {
     color: #374151;
     font-size: 14px;
     min-height: 200px;
-    padding: 15px 25px;
+    padding: 15px 30px;
     word-wrap: break-word;
     text-align: left;
     overflow-y: auto;
