@@ -17,11 +17,11 @@ body {
 
 .container {
     background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0 , 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     padding: 20px;
     max-width: 800px;
-    width: 100%
+    width: 100%;
 }
 
 textarea {
@@ -52,7 +52,7 @@ button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    transition: backgrond-color 0.3s, transform 0.2s;
+    transition: background-color 0.3s, transform 0.2s;
     margin: 0 auto 20px;
 }
 
@@ -67,32 +67,80 @@ button:active {
 }
 
 .results {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px
+    width: 100%;
+    margin-top: 20px;
 }
 
-.result-box {
-    width: 48%;
-    padding: 15px;
+.tabs {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    gap: 2px;
+}
+
+.tab-button {
+    background: #f0f0f5;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 8px 8px 0 0;
+    color: #1e3a8a;
+    font-weight: bold;
+}
+
+.tab-button.active {
+    background: #e6e6ea;
+    border: 1px solid #d1d5db;
+    border-bottom: none;
+    color: #000;
+    position: relative;
+    top: 1px;
+}
+
+.tab-content {
+    display: none;
     border: 1px solid #cbd5e1;
     border-radius: 8px;
     background-color: #f1f5f9;
     color: #374151;
     font-size: 14px;
-    min-height: 150px;
+    min-height: 200px;
+    padding: 15px 30px;
     word-wrap: break-word;
     text-align: left;
+    overflow-y: auto;
+    max-height: 400px;
 }
 
-@media (max-widht: 768px) {
-    .results {
+.tab-content.active {
+    display: block;
+}
+
+.waiting-message {
+    color: #3b82f6;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .tabs {
         flex-direction: column;
+        align-items: center;
+    }
+
+    .tab-button {
+        width: 100%;
+        margin-bottom: 5px;
     }
 
     .result-box {
         width: 100%;
-        margin-bottom: 20px;
     }
 
     button {

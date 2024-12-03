@@ -11,10 +11,15 @@
         <textarea id="code-text" placeholder="Paste your code here..."></textarea>
         <button id="refactor-button">Detect refactor</button>
         <div class="results">
-            <div id="result" class="result-box"></div>
-            <div id="translate" class="result-box"></div>
+            <div class="tabs">
+                <button class="tab-button active" data-tab="result">Original Result</button>
+                <button class="tab-button" data-tab="translate">Translated Result</button>
+            </div>
+            <div id="result" class="result-box tab-content active"></div>
+            <div id="translate" class="result-box tab-content"></div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/15.0.3/marked.min.js" integrity="sha512-7aRjMGJX+VgTMGWgWLpQxavdTKRc2LwCTAS4LmB7OLwGTpH84ehHQoAY/y1fUfprr2yMFC6toDLHpbGaDth9VQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="assets/js/script.js"></script>
 </body>
 </html>
