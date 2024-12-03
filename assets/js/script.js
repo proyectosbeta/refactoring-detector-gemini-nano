@@ -7,7 +7,7 @@ refactorButton.addEventListener("click", async () => {
   const code = codeText.value.trim();
 
   if (!code) {
-    alert("Por favor, ingresa el código que deseas analizar.");
+    alert("Please enter the code you wish to analyze.");
     return;
   }
 
@@ -60,15 +60,21 @@ refactorButton.addEventListener("click", async () => {
   }
 });
 
+async function convertMarkdownToHtml(text) {
+  return marked.parse(text);
+}
+
 async function translateComment(text) {
   try {
+    const html = await convertMarkdownToHtml(text);
+
     if ("createTranslator" in self.translation) {
       const translator = await self.translation.createTranslator({
         sourceLanguage: "en",
         targetLanguage: "es",
       });
 
-      return await translator.translate(text);
+      return await translator.translate(html);
     } else {
       return "Translation API not available in this browser.";
     }
@@ -78,5 +84,6 @@ async function translateComment(text) {
 }
 
 async function displayMarkdown(text, elementHtml) {
-  elementHtml.innerHTML = await marked.parse(text);
+  const html = await convertMarkdownToHtml(text);
+  elementHtml.innerHTML = html;
 }
