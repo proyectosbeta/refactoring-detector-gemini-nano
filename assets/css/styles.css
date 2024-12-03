@@ -21,7 +21,7 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0 , 0, 0.1);
     padding: 20px;
     max-width: 800px;
-    width: 100%
+    width: 100%;
 }
 
 textarea {
@@ -52,7 +52,7 @@ button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    transition: backgrond-color 0.3s, transform 0.2s;
+    transition: background-color 0.3s, transform 0.2s;
     margin: 0 auto 20px;
 }
 
@@ -67,22 +67,50 @@ button:active {
 }
 
 .results {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px
+    width: 100%;
+    margin-top: 20px;
 }
 
-.result-box {
-    width: 48%;
-    padding: 15px;
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.tab-button {
+    background: #e0e7ff;
+    border: 1px solid #cbd5e1;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px 5px 0 0;
+    margin-right: 5px;
+    color: #1e3a8a;
+}
+
+.tab-button.active {
+    background: #3b82f6;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+}
+
+.tab-content {
+    display: none;
     border: 1px solid #cbd5e1;
     border-radius: 8px;
     background-color: #f1f5f9;
     color: #374151;
     font-size: 14px;
-    min-height: 150px;
+    min-height: 200px;
+    padding: 15px 25px;
     word-wrap: break-word;
     text-align: left;
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+.tab-content.active {
+    display: block;
 }
 
 .waiting-message {
@@ -92,14 +120,23 @@ button:active {
     margin-bottom: 15px;
 }
 
-@media (max-widht: 768px) {
-    .results {
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .tabs {
         flex-direction: column;
+        align-items: center;
+    }
+
+    .tab-button {
+        width: 100%;
+        margin-bottom: 5px;
     }
 
     .result-box {
         width: 100%;
-        margin-bottom: 20px;
     }
 
     button {
