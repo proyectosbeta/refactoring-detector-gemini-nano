@@ -4,9 +4,8 @@ const resultDiv = document.getElementById("result");
 const translateDiv = document.getElementById("translate");
 
 refactorButton.addEventListener("click", async () => {
-  const code = codeText.value.trim(); // Elimina espacios innecesarios
+  const code = codeText.value.trim();
 
-  // Verifica si el textarea contiene código
   if (!code) {
     alert("Por favor, ingresa el código que deseas analizar.");
     return;
@@ -47,12 +46,10 @@ refactorButton.addEventListener("click", async () => {
                 **Example Code:**`,
     });
 
-    // Enviar el código para el análisis, especificando explícitamente el lenguaje
     const response = await languageModelRefactoringCode.prompt(
       `Analyze the following Python code and provide suggestions for refactoring:\n\`\`\`python\n${code}\n\`\`\``
     );
 
-    // Mostrar resultado en la página
     resultDiv.innerHTML = response;
     // translateComment(response);
     processMarkdown(response);
@@ -62,7 +59,6 @@ refactorButton.addEventListener("click", async () => {
   }
 });
 
-// Función para traducir el resultado al español
 async function translateComment(text) {
   try {
     if ("createTranslator" in self.translation) {
@@ -88,9 +84,7 @@ async function displayMarkdown(text) {
 }
 
 async function processMarkdown(response) {
-  // Primero ejecuta translateComment
   const translatedText = await translateComment(response);
 
-  // Luego pasa el texto traducido
   displayMarkdown(translatedText);
 }
