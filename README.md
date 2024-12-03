@@ -28,7 +28,6 @@ To properly enable Gemini Nano's capabilities, certain Chrome flags need to be e
 You can use the following code snippet as an example input in the application:
 
 ```python
-# Example Python Code for Factorial Calculation
 def factorial(n):
     if n == 0:
         return 1
