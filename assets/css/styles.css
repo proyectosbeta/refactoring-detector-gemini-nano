@@ -24,6 +24,13 @@ body {
     width: 100%;
 }
 
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #3b82f6;
+}
+
 textarea {
     width: 100%;
     min-height: 200px;
