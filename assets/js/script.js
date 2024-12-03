@@ -11,8 +11,8 @@ refactorButton.addEventListener("click", async () => {
     return;
   }
 
-  resultDiv.innerHTML = "";
-  translateDiv.innerHTML = "";
+  resultDiv.innerHTML = "<p class='waiting-message'>Please wait while the code is being analyzed...</p>";
+  translateDiv.innerHTML = "<p class='waiting-message'>Please wait while the text is being translated to Spanish...</p>";
 
   try {
     // Check for browser AI support
@@ -50,9 +50,10 @@ refactorButton.addEventListener("click", async () => {
       `Analyze the following Python code and provide suggestions for refactoring:\n\`\`\`python\n${code}\n\`\`\``
     );
 
-    resultDiv.innerHTML = response;
-    // translateComment(response);
-    processMarkdown(response);
+    await displayMarkdown(response, resultDiv);
+
+    const translatedText = await translateComment(response);
+    await displayMarkdown(translatedText, translateDiv);
   } catch (error) {
     console.error("Error analyzing code:", error);
     alert("Error analyzing code. Please try again.");
@@ -67,24 +68,15 @@ async function translateComment(text) {
         targetLanguage: "es",
       });
 
-      translateDiv.innerHTML = await translator.translate(text);
+      return await translator.translate(text);
     } else {
-      alert("Translation API not available in this browser.");
-      return;
+      return "Translation API not available in this browser.";
     }
   } catch (err) {
-    translateDiv.innerHTML = "An error occurred. Please try again.";
-    console.error(err.name, err.message);
+    return "An error occurred. Please try again.";
   }
 }
 
-async function displayMarkdown(text) {
-  const html = marked(text);
-  translateDiv.innerHTML = html;
-}
-
-async function processMarkdown(response) {
-  const translatedText = await translateComment(response);
-
-  displayMarkdown(translatedText);
+async function displayMarkdown(text, elementHtml) {
+  elementHtml.innerHTML = await marked.parse(text);
 }
