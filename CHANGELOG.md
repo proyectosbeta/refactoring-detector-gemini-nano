@@ -2,6 +2,7 @@
 
 - feat: add ux/ui
 - refactor: improve the style
+- docs: update readme
 
 ## V1.0.0
 
