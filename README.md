@@ -38,3 +38,9 @@ print(factorial(5))
 ```
 
 This code will be analyzed for possible improvements and refactoring suggestions. The refactoring suggestions will then be translated into Spanish.
+
+## Use
+
+Only Google Canary 
+
+[Demo](https://refactoring-detector-gemini-nano.proyectosbeta.net/)
