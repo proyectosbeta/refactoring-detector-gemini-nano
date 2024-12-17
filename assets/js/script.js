@@ -94,7 +94,7 @@ async function getRefactoringSuggestions(code) {
   });
 
   return await languageModelRefactoringCode.prompt(
-    `Analyze the following Python code and provide suggestions for refactoring:\n\`\`\`python\n${code}\n\`\`\``
+    `Analyze the following code and provide suggestions for refactoring:\n\`\`\`\n${code}\n\`\`\``
   );
 }
 

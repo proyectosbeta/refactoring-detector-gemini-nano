@@ -1,3 +1,7 @@
+## V1.1.1
+
+- fix: add support for all languages
+
 ## V1.1.0
 
 - feat: add ux/ui
